@@ -2,15 +2,9 @@ import React from 'react';
 import {Link} from 'react-router';
 
 export default class Artist extends React.Component{
-	
-	//console.log(props);
-	
 	constructor(props){
 		super(props);
 	}
-
-
-
 
 	componentDidMount(){
 		const artistId = this.props.routeParams.artistId;
@@ -19,13 +13,17 @@ export default class Artist extends React.Component{
 		selectArtist(artistId);
 	}
 
-
 	render(){
+		console.log(this.props)
 		const artist = this.props.artist;
-		return(
+		return (
 			<div>
   				<h3>{artist.name}</h3>
   				<h4>ALBUMS</h4>
+				<div className="row">
+
+				</div>
+
   				<h4>SONGS</h4>
 			</div>
 
