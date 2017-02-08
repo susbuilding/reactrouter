@@ -12,9 +12,6 @@ export const convertAlbum = (album) => {
 export const convertAlbums = (albums) =>
   albums.map(album => convertAlbum(album));
 
-
-
-
 // export const convertArtist = (artist) => {
 //   artist.albumsUrl = `/api/artists/${artist.id}/albums`;
 //   artist.songsUrl = `/api/artists/${artist.id}/songs`;
@@ -24,8 +21,6 @@ export const convertAlbums = (albums) =>
 
 // export const convertArtists = (artists) =>
 // artists.map(artist => convertArtist(artist));
-
-
 
 const mod = (num, m) => ((num % m) + m) % m;
 

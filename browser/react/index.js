@@ -11,14 +11,15 @@ import {IndexRedirect} from 'react-router';
 ReactDOM.render(
   <Router history={hashHistory}>
 	<Route path="/" component={AppContainer}>
-		<IndexRedirect to="/albums"/>
-		<Route path="/albums" component={Albums}/>
-		<Route path="/albums/:albumId" component={Album}/>
-		<Route path="/artists" component={Artists}/>
-		<Route path="/artists/:artistId" component={Artist}/>
-		</Route>
+		{/* THERE ARE THE PROPS.CHILDREN in APP CONTAINER*/}
+		<IndexRedirect to="/albums" />
+		<Route path="/albums" component={Albums} />
+		<Route path="/albums/:albumId" component={Album} />
+		<Route path="/artists" component={Artists} />
+		<Route path="/artists/:artistId" component={Artist} />
+	</Route>
 
-	</Router>,
+</Router>,
   document.getElementById('app')
 );
 
