@@ -11,13 +11,13 @@ export default class Artists extends React.Component {
 
     render(){
         const artists = this.props.artists;
-
+        const selectArtist = this.props.selectArtist;
         return (
             <div>
                 <h3>Artists</h3>
                     <div className="list-group">
                     {
-                    this.props.artists.map(artist => {
+                    artists.map(artist => {
                         return (
                         <div className="list-group-item" key={artist.id}>
                             {/* determine where to actually Link to later! */}
@@ -31,3 +31,18 @@ export default class Artists extends React.Component {
         )
     }
 }
+
+
+
+
+
+
+// const Artists = (props) => {
+
+
+//     return (
+
+//         JSX
+//         props.name
+//         )
+// }

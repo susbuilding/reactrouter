@@ -8,6 +8,8 @@ import Albums from '../components/Albums.js';
 import Album from '../components/Album';
 import Sidebar from '../components/Sidebar';
 import Player from '../components/Player';
+import Artists from '../components/Artists';
+import Artist from '../components/Artist';
 
 import { convertAlbum, convertAlbums, skip } from '../utils';
 
@@ -23,16 +25,18 @@ export default class AppContainer extends Component {
     this.prev = this.prev.bind(this);
     this.selectAlbum = this.selectAlbum.bind(this);
     this.deselectAlbum = this.deselectAlbum.bind(this);
+
+    this.selectArtist = this.selectArtist.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     axios.get('/api/albums/')
       .then(res => res.data)
       .then(album => this.onLoad(convertAlbums(album)));
 
     axios.get('/api/artists')
       .then(res => res.data)
-      .then(artist => this.onLoadArtists(artist))
+      .then(artist => this.onLoadArtists(artist));
 
     AUDIO.addEventListener('ended', () =>
       this.next());
@@ -108,18 +112,19 @@ export default class AppContainer extends Component {
       }));
   }
 
-  //  selectArtist (artistId) {
-  //   axios.get(`/api/artists/${artistId}`)
-  //     .then(res => res.data)
-  //     .then(album => this.setState({
-  //       selectedArtist: convertArtist(artist)
-  //     }));
-  // }
+   selectArtist (artistId) {
+    axios.get(`/api/artists/${artistId}`)
+      .then(res => res.data)
+      .then(artist => this.setState({
+        artist: artist
+      }));
+  }
 
   deselectAlbum () {
     this.setState({ selectedAlbum: {}});
   }
 
+  //THIS IS WHERE STATE IS BEING PASSED AS PROPS ONTO CHILDREN
   render () {
     return (
       <div id="main" className="container-fluid">
@@ -136,8 +141,9 @@ export default class AppContainer extends Component {
               toggleOne: this.toggleOne,
               albums: this.state.albums,
               selectAlbum: this.selectAlbum,
-              artists: this.state.artists
-              // artist: this.state.selectedArtist
+              artists: this.state.artists,
+              artist: this.state.artist,
+              selectArtist: this.selectArtist
           })
 
 
