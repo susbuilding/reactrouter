@@ -12,6 +12,14 @@ export const convertAlbum = (album) => {
 export const convertAlbums = (albums) =>
   albums.map(album => convertAlbum(album));
 
+// export const convertArtists = (artists) =>
+// artists.map(artist => convertArtist(artist));
+
+// export const convertArtist = (artist) => {
+//   album.songs = album.songs.map(convertSong);
+//   return album;
+// };
+
 const mod = (num, m) => ((num % m) + m) % m;
 
 export const skip = (interval, { currentSongList, currentSong }) => {
