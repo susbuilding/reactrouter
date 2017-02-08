@@ -1,4 +1,4 @@
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route, hashHistory, Link} from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './containers/AppContainer';
